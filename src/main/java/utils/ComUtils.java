@@ -3,7 +3,7 @@ package utils;
 import java.io.*;
 
 public class ComUtils {
-    private final int STRSIZE = 40;
+    private final int STRSIZE = 20;
 
     private DataInputStream dataInputStream;
     private DataOutputStream dataOutputStream;
@@ -151,6 +151,15 @@ public class ComUtils {
         dataOutputStream.write(bHeader, 0, size);
         // Enviem l'string writeBytes de DataOutputStrem no envia el byte més alt dels chars.
         dataOutputStream.writeBytes(str);
+    }
+    
+    
+    public char readChar() throws IOException{
+        return dataInputStream.readChar();
+    }
+    
+    public void writeChar(char c) throws IOException{
+        dataOutputStream.writeChar((int)c);
     }
 
     public enum Endianness {
